@@ -199,6 +199,8 @@ executeChecksSingleIngredient <- function(cdm,
     if (dplyr::pull(dplyr::tally(dplyr::filter(cdm[["ingredient_drug_records"]], .data$drug_exposure_start_date > .env$earliestStartDate)), .data$n) < sample) {
       message("population after FREIAearliestStartDate smaller than sample, ignoring date for sampling")
       print("TESTFREIA")
+      print(cdm[["ingredient_drug_records"]])
+      print(cdm[["person"]])
       cdm[["ingredient_drug_records"]] <- cdm[["ingredient_drug_records"]] %>%
         dplyr::slice_sample(n = sample) %>%
         CDMConnector::computeQuery()
