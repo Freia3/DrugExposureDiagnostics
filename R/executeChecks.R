@@ -202,6 +202,7 @@ executeChecksSingleIngredient <- function(cdm,
       cdm[["ingredient_drug_records"]] <- cdm[["ingredient_drug_records"]] %>%
         dplyr::slice_sample(n = sample) %>%
         CDMConnector::computeQuery()
+      print("TESTFREIAAA")
     } else{
       cdm[["ingredient_drug_records"]] <- cdm[["ingredient_drug_records"]] %>%
         dplyr::filter(.data$drug_exposure_start_date > .env$earliestStartDate) %>%
