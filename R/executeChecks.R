@@ -47,7 +47,7 @@
 #'   cdm = cdm,
 #'   ingredients = c(1125315))
 #' }
-executeChecksFreia <- function(cdm,
+executeChecks <- function(cdm,
                           ingredients = c(1125315),
                           subsetToConceptId = NULL,
                           checks = c("missing", "exposureDuration", "type", "route",
