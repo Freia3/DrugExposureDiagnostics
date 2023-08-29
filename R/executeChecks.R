@@ -47,7 +47,7 @@
 #'   cdm = cdm,
 #'   ingredients = c(1125315))
 #' }
-executeChecks <- function(cdm,
+executeChecksFreia <- function(cdm,
                           ingredients = c(1125315),
                           subsetToConceptId = NULL,
                           checks = c("missing", "exposureDuration", "type", "route",
@@ -197,7 +197,7 @@ executeChecksSingleIngredient <- function(cdm,
       start <- printDurationAndMessage("Progress: sampling drug records", start)
     }
     if (dplyr::pull(dplyr::tally(dplyr::filter(cdm[["ingredient_drug_records"]], .data$drug_exposure_start_date > .env$earliestStartDate)), .data$n) < sample) {
-      message("population after earliestStartDate smaller than sample, ignoring date for sampling")
+      message("population after FREIAearliestStartDate smaller than sample, ignoring date for sampling")
       print("TESTFREIA")
       cdm[["ingredient_drug_records"]] <- cdm[["ingredient_drug_records"]] %>%
         dplyr::slice_sample(n = sample) %>%
